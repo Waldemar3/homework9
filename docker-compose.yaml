@@ -1,0 +1,32 @@
+version: "3"
+
+networks:
+  custom-app:
+    driver: bridge
+
+services:
+  app:
+    build: .
+    depends_on:
+      - mysql
+    ports:
+      - 80:80
+    volumes:
+      - .:/src/app
+    networks:
+      - custom-app
+
+  mysql:
+    image: "mysql:latest"
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=789905555v
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=qwerty
+    ports:
+    - 42333:3306
+    networks:
+      - custom-app
+

@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "./src"
+    }
+  },
+  "require": {
+    "illuminate/database": "^7.24",
+    "illuminate/events": "^7.24",
+    "fzaninotto/faker": "^1.9"
+  }
+}
